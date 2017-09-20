@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Edit Permission
+{% endblock %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            {% url "listuserurl" as thelistuserurl %}
+                            <li role="presentation" class="{% if request.path == thelistuserurl %} active {% endif %}">
+                                <a href={{ thelistuserurl }}>用户列表</a></li>
+{#                            {% url "addroleurl" as theaddroleurl %}#}
+{#                            <li role="presentation" class="{% if request.path == theaddroleurl %} active {% endif %}">#}
+{#                                <a href={{ theaddroleurl }}>新建角色</a></li>#}
+                            {% url "listroleurl" as thelistroleurl %}
+                            <li role="presentation" class="{% if request.path == thelistroleurl %} active {% endif %}">
+                                <a href={{ thelistroleurl }}>角色列表</a></li>
+{#                            {% url "addpermissionurl" as theaddpermissionurl %}#}
+{#                            <li role="presentation"#}
+{#                                class="{% if request.path == theaddpermissionurl %} active {% endif %}">#}
+{#                                <a href={{ theaddpermissionurl }}>新建权限</a></li>#}
+                            {% url "listpermissionurl" as thelistpermissionurl %}
+                            <li role="presentation"
+                                class="{% if request.path == theaddpermissionurl %} active {% endif %}">
+                                <a href={{ thelistpermissionurl }}>权限列表</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                 aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>新建角色
+                                                </h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+
+                                                <form class="form-horizontal" role="form"
+                                                      action={% url "editpermissionurl" ID %} method="POST">
+                                                    {% csrf_token %}
+
+                                                    {% for item in form %}
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-1">{{ item.label }}</label>
+                                                            <div class="col-md-2">
+                                                                {{ item }}
+                                                            </div>
+                                                            <div class="col-md-offset-1 col-md-10">
+                                                                {{ item.errors }}
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-offset-1 col-md-10">
+                                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                                    onclick="return confirm('确认更新吗？')">更 新
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

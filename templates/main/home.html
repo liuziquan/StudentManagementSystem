@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    主页
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+	
+	table.tile_info td:first-child {
+    width: 40%;
+}
+
+</style>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    <div hidden="hidden">
+                        <input id="problem_data" type="text" value="{{ problem_data }}"/>
+                    </div>
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs"></div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

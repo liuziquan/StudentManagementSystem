@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{% block title %}{% endblock %}</title>
+<!-- Bootstrap -->
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/font-awesome.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+<link href="/static/css/nprogress.css" rel="stylesheet">
+<link href="/static/css/jqvmap.min.css" rel="stylesheet">
+{% block head %}{% endblock %}
+<link href="/static/css/custom.min.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<!-- 内容区域 -->
+
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a href="/" class="site_title"><i class="fa fa-cloud"></i> <span>知数堂管理平台</span></a>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<!-- menu profile quick info -->
+					<!-- 					<div class="profile">
+						<div class="profile_pic">
+							<img src="/static/img/avatar2.jpg" alt="..."
+								class="img-circle profile_img">
+						</div>
+						<div class="profile_info">
+							<span>Welcome,</span>
+							<h2></h2>
+						</div>
+					</div> -->
+					<!-- /menu profile quick info -->
+
+					<br /> {% include "sidebar.html" %}
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav class="" role="navigation">
+						<div class="nav toggle">
+							<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+						</div>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> <img src="/static/images/user.png"
+									alt=""> <span class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<li><a href="/admin/"> Profile</a></li>
+									<li><a href="/">Help</a></li>
+									<li><a href="{% url 'logout' %}"><i
+											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+								</ul></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+
+			<!-- page content -->
+
+        
+			{% block content %} {% endblock %}
+        
+			<!-- /page content -->
+
+
+			<!-- footer content -->
+			<footer>
+				<div class="pull-right">
+					知数堂 - Powered by <a href="http://zhishutang.com/"
+						target="_blank">知数堂</a>
+				</div>
+				<div class="clearfix"></div>
+			</footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="/static/js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/bootstrap-progressbar.min.js"></script>
+	{% block js %} {% endblock %}
+	<!-- Custom Theme Scripts -->
+	<script src="/static/js/custom.min.js"></script>
+	<script src="/static/js/Chart.min.js"></script>
+	<script src="/static/js/nprogress.js"></script>
+	
+	
+	<script src="/static/js/tmp/jquery.sparkline.min.js"></script>
+	<script src="/static/js/tmp/jquery.flot.js"></script>
+	<script src="/static/js/tmp/jquery.flot.pie.js"></script>
+	<script src="/static/js/tmp/jquery.flot.time.js"></script>
+	<script src="/static/js/tmp/jquery.flot.stack.js"></script>
+	<script src="/static/js/tmp/jquery.flot.resize.js"></script>
+	<script src="/static/js/tmp/jquery.flot.orderBars.js"></script>
+	<script src="/static/js/tmp/jquery.flot.spline.min.js"></script>
+	<script src="/static/js/tmp/curvedLines.js"></script>
+	<script src="/static/js/tmp/date.js"></script>
+	<script src="/static/js/tmp/moment.min.js"></script>
+	<script src="/static/js/tmp/daterangepicker.js"></script>
+	
+	
+	<script src="/static/js/map/jquery.vmap.js"></script>
+	<script src="/static/js/map/maps/jquery.vmap.world.js"></script>
+	<script src="/static/js/map/maps/jquery.vmap.china.js"></script>
+	<script src="/static/js/map/jquery.vmap.sampledata.js"></script>
+	
+	<script src="/static/js/iCheck/iCheck.min.js"></script>
+
+
+</body>
+</html>

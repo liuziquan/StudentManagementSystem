@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>知数堂学员注册</title>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"f0fca32c047f3e8821046b9fe2791f87",petok:"f31fe026f95f19a406979ba652f1c4c92086c940-1495707676-1800",zone:"colorlib.com",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=85b614c0f6/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/static/css/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="login center">
+  <form class="form-horizontal" role="form" action={% url "adduserurl" %} method="POST" >
+    {% csrf_token %}
+
+    <h3 class="col-md-offset-5 col-md-5">注册知数堂</h3>
+
+        {% for item in form %}
+            <div class="form-group">
+                <label class="control-label col-md-5">{{item.label}}</label>
+                <div class="col-md-2">
+                    {{item}}
+                </div>
+                <div class="col-md-offset-1 col-md-5">
+                    {{item.errors}}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-5">
+                <button type="submit" class="btn btn-danger btn-sm">新 增</button>
+            </div>
+        </div>
+    </form>
+
+
+  </body>
+</html>

@@ -1,0 +1,154 @@
+diff a/templates/sidebar.html b/templates/sidebar.html	(rejected hunks)
+@@ -1,108 +0,45 @@
+-            <div class="panel-group" id="accordion">
+-                <div class="panel panel-default">
+-                    <div class="panel-heading">
+-                        <h4 class="panel-title">
+-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed"><span class="glyphicon glyphicon-list-alt btn-xs"></span>监控管理</a>                            
+-                        </h4>
+-                    </div>
+-                    <div id="collapseOne" class="panel-collapse collapse {% if 'monitoring' in request.path %} in {% endif %}">
+-                        <div class="panel-body">
+-                            <table class="table">
+-                                <tbody><tr>
+-                                    <td>
+-                                        <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "hostsinfo" %}>主机信息</a>
+-                                    </td>
+-                                </tr>
+-                                <tr>
+-                                    <td>
+-                                        <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "netinfo" %}>网络信息</a>
+-                                    </td>
+-                                </tr>
+-                                <tr>
+-                                    <td>
+-                                        <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "warningsinfo" %}>告警信息</a>
+-                                    </td>
+-                                </tr>
+-                                <tr>
+-                                    <td>
+-                                        <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "statisticsinfo" %}>统计信息</a>
+-                                    </td>
+-                                </tr>
+-                            </tbody></table>
+-                        </div>
+-                    </div>
+-                </div>
+-                
+-                <div class="panel panel-default">
+-                    <div class="panel-heading">
+-                        <h4 class="panel-title">
+-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed"><span class="glyphicon glyphicon-list-alt btn-xs"></span>配置管理</a>
+-                        </h4>
+-                    </div>
+-                    <div id="collapseTwo" class="panel-collapse collapse {% if 'salt' in request.path %} in {% endif %}">
+-                        <div class="panel-body">
+-                            <table class="table">
+-                                <tbody>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "messageurl" %}>服务器信息查看</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "diskmassageurl" %}>磁盘管理</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "cmdurl" %}>命令管理</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "uploadurl" %}>文件管理</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "moduleurl" %}>模块管理</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "audit_logurl" %}>操作记录</a>
+-                                        </td>
+-                                    </tr>
+-                                </tbody>
+-                            </table>
+-                        </div>
+-                    </div>
+-                </div>
+ 
+-                <div class="panel panel-default">
+-                    <div class="panel-heading">
+-                        <h4 class="panel-title">
+-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed"><span class="glyphicon glyphicon-list-alt btn-xs"></span>平台管理</a>
+-                        </h4>
+-                    </div>
+-                    <div id="collapseThree" class="panel-collapse collapse {% if 'list' in request.path %} in {% endif %}">
+-                        <div class="panel-body">
+-                            <table class="table">
+-                                <tbody>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "listsurl" %}>资源管理</a>
+-                                        </td>
+-                                    </tr>
+-                                    <tr>
+-                                        <td>
+-                                            <span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a href={% url "listuserurl" %}>用户管理</a>
+-                                        </td>
+-                                    </tr>
+-                                </tbody>
+-                            </table>
+-                        </div>
+-                    </div>
+-                </div>
++<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
++	<div class="menu_section">
++		<ul class="nav side-menu">
++			<li><a><i class="fa fa-tachometer"></i> 监控管理 <span
++					class="fa fa-chevron-down"></span></a>
++				<ul class="nav child_menu">
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "hostsinfo" %}>主机信息</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "netinfo" %}>网络信息</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "warningsinfo" %}>告警信息</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "statisticsinfo" %}>统计信息</a></li>
++				</ul></li>
+ 
+-            </div>
++			<li><a><i class="fa fa-cubes"></i> 配置管理 <span
++					class="fa fa-chevron-down"></span></a>
++				<ul class="nav child_menu">
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "messageurl" %}>服务器信息查看</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "diskmassageurl" %}>磁盘管理</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "cmdurl" %}>命令管理</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "uploadurl" %}>文件管理</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "moduleurl" %}>模块管理</a></li>
++
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "audit_logurl" %}>操作记录</a></li>
++				</ul></li>
++
++			<li><a><i class="fa fa-folder-open"></i> 平台管理 <span
++					class="fa fa-chevron-down"></span></a>
++				<ul class="nav child_menu">
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "listsurl" %}>资源管理</a></li>
++					<li><span class="glyphicon glyphicon-tree-conifer btn-xs"></span><a
++						href={%url "listuserurl" %}>用户管理</a></li>
++				</ul></li>
++	</div>
++</div>
+\ No newline at end of file

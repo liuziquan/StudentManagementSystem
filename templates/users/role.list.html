@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Role List
+{% endblock %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            {% url "listuserurl" as thelistuserurl %}
+                            <li role="presentation" class="{% if request.path == thelistuserurl %} active {% endif %}">
+                                <a href={{ thelistuserurl }}>用户列表</a></li>
+                            {#                            {% url "addroleurl" as theaddroleurl %}#}
+                            {#                            <li role="presentation" class="{% if request.path == theaddroleurl %} active {% endif %}">#}
+                            {#                                <a href={{ theaddroleurl }}>新建角色</a></li>#}
+                            {% url "listroleurl" as thelistroleurl %}
+                            <li role="presentation" class="{% if request.path == thelistroleurl %} active {% endif %}">
+                                <a href={{ thelistroleurl }}>角色列表</a></li>
+{#                            {% url "addpermissionurl" as theaddpermissionurl %}#}
+{#                            <li role="presentation"#}
+{#                                class="{% if request.path == theaddpermissionurl %} active {% endif %}">#}
+{#                                <a href={{ theaddpermissionurl }}>新建权限</a></li>#}
+                            {% url "listpermissionurl" as thelistpermissionurl %}
+                            <li role="presentation"
+                                class="{% if request.path == theaddpermissionurl %} active {% endif %}">
+                                <a href={{ thelistpermissionurl }}>权限列表</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                 aria-labelledby="home-tab">
+
+                                <div class="x_content">
+<!--                                     <a href="{% url "addroleurl" %}">
+                                        <button type="button" class="btn btn-blue btn-lg" data-toggle="tooltip"
+                                                data-placement="left"
+                                                title="添加角色">
+                                            <i class="fa fa-plus"></i> 添加角色
+                                        </button>
+                                    </a> -->
+                                    
+                                    <div class="pull-right"><a href="{% url "addroleurl" %}"><button class="btn btn-default source"><i class="fa fa-plus-square-o"></i> 添加角色</button></a></div>
+                                    <table class="table table-striped projects">
+                                        <tr>
+                                            <th>角色名称</th>
+                                            <th>操作</th>
+                                        </tr>
+
+                                        {% for i in lPage %}
+                                            <tr style="font-size: 13px;">
+                                                <td>{{ i.name }} </td>
+
+                                                <td>
+                                                    <a href={% url "editroleurl" i.id %} onclick="return confirm('确认编辑角色吗？？')"><span
+                                                        class="glyphicon glyphicon-edit btn-xs"></span></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                    </table>
+
+                                    {% include "paginator.html" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
